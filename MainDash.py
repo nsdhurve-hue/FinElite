@@ -67,14 +67,11 @@ def load_data(file):
     )
 
     return df
-  uploaded = st.sidebar.file_uploader(
-    "📂 Upload Banking Excel File",
-    type=["xlsx", "xls"]
-)
+  def load_data(file):
+    df = pd.read_excel(file)
+    return df
 
-if uploaded is None:
-    st.info("Please upload the Credit Card Banking Excel dataset.")
-    st.stop()
+uploaded = st.sidebar.file_uploader(...)
 
 df = load_data(uploaded)
 filtered = df.copy()
