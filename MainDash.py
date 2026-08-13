@@ -65,8 +65,7 @@ def load_data(file):
         "High Risk",
         "Standard"
     )
-
-    return df
+@st.cache_data
   def load_data(file):
     df = pd.read_excel(file)
     return df
