@@ -67,13 +67,17 @@ def load_data(file):
     )
 
     return df
-  uploaded=st.sidebar.file_uploader(
-"Upload Banking Dataset",
-type="xlsx"
+  uploaded = st.sidebar.file_uploader(
+    "📂 Upload Banking Excel File",
+    type=["xlsx", "xls"]
 )
 
 if uploaded is None:
+    st.info("Please upload the Credit Card Banking Excel dataset.")
     st.stop()
+
+df = load_data(uploaded)
+filtered = df.copy()
 
 df=load_data(uploaded)
 gender=st.sidebar.multiselect(
